@@ -8,7 +8,7 @@ const stream = require('stream');
 const project_ID = require('./credentials.json').project_id;
 const getPublicURL = async (bucketName, fileName, fileType) => `https://storage.googleapis.com/${bucketName}/${fileName}.${fileType}`;
 
-const uploadFile = async (bucketName, fileName, fileExtension, fileMetaType) => {
+const uploadFile = async (data, bucketName, fileName, fileExtension, fileMetaType) => {
   
   const storage = new Storage({
     projectId: project_ID, //G-Cloud project name
@@ -17,7 +17,7 @@ const uploadFile = async (bucketName, fileName, fileExtension, fileMetaType) => 
   const bucket = storage.bucket(bucketName);
   const uploadDocument = bucket.file(`${fileName}.${fileExtension}`);
   const bufferStream = new stream.PassThrough();
-  bufferStream.end('hello, what here, who');
+  bufferStream.end(data);
 
   // stream the files into the cloud, specify types and 
   bufferStream.pipe(uploadDocument.createWriteStream({
