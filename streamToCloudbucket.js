@@ -3,7 +3,7 @@ const {
 } = require('@google-cloud/storage');
 const stream = require('stream');
   // Credentials for G-storage API access generated as JSON from IAM permissions of Google APIs 
-  https://cloud.google.com/iam/docs/overview
+ // https://cloud.google.com/iam/docs/overview
 
 const project_ID = require('./credentials.json').project_id;
 const getPublicURL = async (bucketName, fileName, fileType) => `https://storage.googleapis.com/${bucketName}/${fileName}.${fileType}`;
