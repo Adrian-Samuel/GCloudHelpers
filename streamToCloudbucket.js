@@ -41,4 +41,4 @@ const uploadFile = async (data, bucketName, fileName, fileExtension, fileMetaTyp
 
 }
 
-uploadFile('bucket-name', 'file-name', 'csv', 'text/csv')
+uploadFile('custom data', 'bucket-name', 'file-name', 'csv', 'text/csv')
